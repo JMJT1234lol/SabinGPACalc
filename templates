@@ -1,3 +1,54 @@
-<script>start("/Users/macbook/Desktop/AP Computer Science Principles /GPACalcWebsite/templates/");</script>
-<script>onHasParentDirectory();</script>
-<script>addRow("index.html","index.html",0,1773,"1.7 kB",1740281490,"2/22/25, 8:31:30 PM");</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sabin GPA Calculator</title>
+    <style>
+        .honors-spacing {
+            margin-left: 10px;
+        }
+        .flex-container {
+            display: flex;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-decoration: underline;">Sabin GPA Calculator</h1>
+    <h2>Enter only Letter Grade (No % or -/+)</h2>
+    <form method="POST">
+        <div>
+            <label for="Language Arts">Language Arts:</label>
+            <input type="text" name="Language Arts" required>
+        </div>
+        <div>
+            <label for="Social Studies">Social Studies:</label>
+            <input type="text" name="Social Studies" required>
+        </div>
+        <div>
+            <label for="Science">Science:</label>
+            <input type="text" name="Science" required>
+        </div>
+        <div class="flex-container">
+            <label for="Math ">Math:</label>
+            <input type="text" name="Math" required>
+            <label for="Math_type" class="honors-spacing">Is it Honors?:</label>
+            <input type="text" name="Math_type" class="honors-spacing" required>
+        </div>
+        <div>
+            <label for="Elective One">Elective One:</label>
+            <input type="text" name="Elective One" required>
+        </div>
+        <div>
+            <label for="Elective Two">Elective Two:</label>
+            <input type="text" name="Elective Two" required>
+        </div>
+        <button type="submit">Calculate GPA</button>
+    </form>
+    {% if gpa is not none %}
+        <h2>Your GPA is: {{ gpa }}</h2>
+        <h3>{{ honor_roll }}</h3>
+        <h3>You are failing {{ failing_count }} classes.</h3>
+    {% endif %}
+</body>
+</html>
